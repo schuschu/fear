@@ -1,0 +1,15 @@
+
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Fear
+Comment=My first theme, based on Hope.
+Encoding=UTF-8
+
+Name[en_US]=Hope
+
+[X-GNOME-Metatheme]
+GtkTheme=Fear
+MetacityTheme=Fear
+IconTheme=
+CursorTheme=DMZ-White
+ButtonLayout=close,minimize,maximize:

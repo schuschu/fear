@@ -1,0 +1,182 @@
+# ==============================================================================
+# NAUTILUS SPECIFIC SETTINGS
+# ==============================================================================
+
+style "nautilus_info_pane" {
+	bg[NORMAL] = @bg_color
+}
+
+
+style "nautilus-sidebar" {
+	
+
+	xthickness				= 3
+	GtkTreeView::odd_row_color             	= "#EBEEF2" # Change color here
+	GtkTreeView::even_row_color           	= "#EBEEF2" # Change color here
+	GtkTreeView::horizontal_separator     	= 15
+	GtkTreeView::vertical_separator		= 2
+
+	text[NORMAL]				= mix (0.3, @bg_color, @text_color)
+	font_name 	                  	= "ubuntu"
+
+}
+
+style "nautilus-handle"
+{
+	GtkPaned::handle-size         = 2
+	
+	engine "pixmap"
+	{
+		image # for the thin gray line separating the sidepane and viewpane
+		{
+		    function		= HANDLE
+		    recolorable		= TRUE
+		    file		= "/nautilus/handle.png"
+		    stretch		= TRUE
+		    border 		= { 0, 0, 0, 0 }
+		}
+	}
+}
+
+style "nautilus-sidebar-title"
+{
+	fg[NORMAL]      = @bg_color # Change text color here
+	fg[PRELIGHT]    = @bg_color # Change text color here
+	fg[ACTIVE]      = @bg_color # Change text color here
+
+	bg[NORMAL]      = @bg_color # Change color here
+	bg[PRELIGHT]    = @bg_color # Change color here
+	bg[ACTIVE]      = @bg_color # Change color here
+}
+
+style "nautilus-default-view"
+{
+
+	xthickness = 0
+	ythickness = 0
+
+}
+
+style "extra-view-widgets"
+{
+
+	bg[NORMAL] = "#F0F0F0"
+
+
+}
+
+
+style "nautilus-left-slider"
+{
+	xthickness = 0
+	ythickness = 0
+	
+	engine "pixmap"
+	{
+		image
+		{
+			function 		= BOX
+			file			= "/nautilus/Breadcrumbs/left_slider_normal.png"
+			border			= { 3, 3, 3, 3 }
+			stretch			= TRUE
+		}
+	}
+
+}
+
+style "nautilus-right-slider"
+{	
+	xthickness = 0
+	ythickness = 0
+	
+	engine "pixmap"
+	{
+		image
+		{
+			function 		= BOX
+			file			= "/nautilus/Breadcrumbs/right_slider_normal.png"
+			border			= { 3, 3, 3, 3 }
+			stretch			= TRUE
+		}
+	}
+}
+
+##########################################################################
+#style "nautilus-statusbar"
+#{
+#	xthickness	= 6
+
+
+#	engine "pixmap" 
+#	{
+
+#	    image
+#	    {
+#	     	function	= RESIZE_GRIP
+#		recolorable	= TRUE
+#		detail		= "statusbar"
+#		overlay_file	= "/nautilus/resize.png"
+#		overlay_border	= {0,0,0,0 }
+#		overlay_stretch	= FALSE
+#	    }
+#      }
+#}
+
+#style "nautilus-scale"
+#{
+#	ythickness = 0
+
+#	GtkRange		::trough-border				= 0
+#	GtkScale		::trough-side-details			= 0
+
+
+
+	
+#	engine "pixmap" 
+#	{
+#		image 
+#		{
+#			function		= BOX
+#			detail			= "trough"
+#			file			= "/Range/trough.png"
+#			border			= { 10, 10, 5, 15 }
+#		}	
+#		image 
+#		{
+#			function		= SLIDER
+#			overlay_file		= "/Range/slider.png"
+#			overlay_stretch		= FALSE
+#    }
+#  }
+#}
+
+###########################################################################
+
+
+
+
+
+
+widget_class		"*NautilusSidePane.*"               	 	style:highest "nautilus-sidebar"
+widget_class		"*Nautilus*Places*Sidebar*"         		style "nautilus-sidebar"
+widget_class 		"*Nautilus*Side*.GtkWidget"            		style "nautilus-sidebar"
+widget_class 		"*Nautilus*Side*Title*"                		style "nautilus-sidebar-title"
+
+widget			"*.nautilus-extra-view-widget"			style:highest "extra-view-widgets"
+	
+widget_class		"*Nautilus*<GtkNotebook>*<GtkEventBox>" 	style "nautilus_info_pane"
+widget_class		"*Nautilus*<GtkButton>" 		     	style "notebook_button"
+widget_class		"*Nautilus*<GtkButton>*<GtkLabel>"     		style "notebook_button"
+
+
+widget			"*Nautilus*Splitter"	          		style "nautilus-handle"
+widget_class		"*Nautilus*View*" 				style "nautilus-default-view"
+
+
+
+widget 			"Nautilus*left_slider*"				style "nautilus-left-slider" 
+widget 			"Nautilus*right_slider*"			style "nautilus-right-slider"
+
+	
+#widget_class		"*Nautilus*Statusbar*"				style "nautilus-statusbar"
+#widget_class		"*Nautilus*Scale*"				style "nautilus-scale"
